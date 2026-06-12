@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wan Alisa Sofia | e-Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap');
+
+        :root {
+            --primary-color: #F8B72C; /* App Golden Yellow */
+            --secondary-color: #0A1A3A; /* App Navy Blue */
+            --text-color: #333;
+            --bg-color: #f4f4f9;
+            --card-bg: #ffffff;
+            --footer-bg: #1a1a1a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: var(--secondary-color);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            position: relative;
+            color: var(--secondary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .intro-text {
+            text-align: center;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .sdg-badge {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .reflection-text {
+            margin-top: 15px;
+            font-size: 0.95rem;
+            font-style: italic;
+            color: #555;
+            border-left: 3px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        .btn-github {
+            display: inline-block;
+            margin-top: auto;
+            padding: 10px 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .btn-github:hover {
+            background-color: #1a3a6a;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .skill-tag {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+        }
+
+        .resources-list {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .resources-list ul {
+            list-style: none;
+        }
+
+        .resources-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .resources-list li::before {
+            content: '✔';
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        footer {
+            background-color: var(--footer-bg);
+            color: #888;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 600px) {
+            header { padding: 50px 20px; }
+            header h1 { font-size: 1.8rem; }
+            nav a { margin: 0 8px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="home">
+        <h1>WAN ALISA SOFIA BINTI WAN MOHD RAMZAN</h1>
+        <p>A220960 | Mobile Application Programming</p>
+        <div class="sdg-badge">SDG 4: Quality Education</div>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#labs">Labs</a>
+        <a href="#projects">Projects</a>
+        <a href="#reflection">Reflection</a>
+        <a href="#skills">Skills</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <section>
+        <div class="intro-text">
+            I am a student in Mobile Application Programming who is passionate about building simple but functional mobile applications. Through this course, I have learned how to design user-friendly interfaces, handle user interactions, and connect apps with real-world data. This e-Portfolio showcases my labs, projects, and learning journey throughout the semester.
+        </div>
+        <div style="text-align: center;">
+            <p><strong>Goal:</strong> Inclusive and equitable learning opportunities for all.</p>
+        </div>
+    </section>
+
+    <section id="labs">
+        <h2 class="section-title">Lab Submissions</h2>
+        <div class="grid">
+            <!-- Lab 1 -->
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/PNff1WHPCxc" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Lab 1: UI Design</h3>
+                    <p>Focus on layout structure, alignment, and basic composables in Jetpack Compose.</p>
+                    <p class="reflection-text">This lab helped me understand the basics of user interface design in mobile applications. I learned how layout structure, colors, and alignment affect user experience. It improved my awareness of designing clean and user-friendly screens.</p>
+                </div>
+            </div>
+            <!-- Lab 2 -->
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/aOKjt1LnpUE" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Lab 2: Interaction</h3>
+                    <p>Handling state, button clicks, and dynamic user inputs.</p>
+                    <p class="reflection-text">In this lab, I learned how user interactions such as button clicks and input handling work. It helped me understand how apps respond dynamically to user actions. This made my application feel more interactive and functional.</p>
+                </div>
+            </div>
+            <!-- Lab 3 -->
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/SFpc4Bt1_gE" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Lab 3: Material Design</h3>
+                    <p>Implementing Material 3 components for a polished visual identity.</p>
+                    <p class="reflection-text">This lab introduced me to Material Design principles in Android development. I learned how to use components like cards, buttons, and consistent spacing. It helped improve the visual quality of my app.</p>
+                </div>
+            </div>
+            <!-- Lab 4 -->
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/fdTjeWtwYYE" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Lab 4: Navigation</h3>
+                    <p>Setting up a NavHost to manage transitions between multiple screens.</p>
+                    <p class="reflection-text">In this lab, I learned how to move between different screens using navigation components. It made my app more structured and easier to use. I also understood how navigation improves user flow.</p>
+                </div>
+            </div>
+            <!-- Lab 5 -->
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/3PVEPjMnafU" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Lab 5: Room Database</h3>
+                    <p>Persistent local storage using SQL-based Room library.</p>
+                    <p class="reflection-text">This lab taught me how to store data locally using Room database. I learned how to save, update, and retrieve data inside the app. It helped me understand offline data management in Android.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="grid">
+            <!-- Project 1 -->
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/f-QTKnGBWDg" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Project 1: SlideGenie (Core)</h3>
+                    <p><strong>Problem:</strong> Students often struggle to organize notes and tasks efficiently across different subjects.</p>
+                    <p class="reflection-text">Through this project, I learned how to combine multiple lab concepts into a working application. I also improved my understanding of UI design and navigation flow. It taught me how to debug real application issues.</p>
+                    <a href="https://github.com/1-alisa/A220960_WanAlisaSofiaBintiWanMohdRamzan_SirNelson_Project1" class="btn-github" target="_blank">View on GitHub</a>
+                </div>
+            </div>
+            <!-- Project 2 -->
+            <div class="card">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/fMPEJDDgVgg" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Project 2: SlideGenie (Advanced)</h3>
+                    <p><strong>Problem:</strong> A lack of centralized academic tools and live motivational resources can hinder students' learning productivity.</p>
+                    <p class="reflection-text">This project helped me understand API integration and sensor usage in mobile apps. I learned how to connect cloud services with mobile applications. It also improved my problem-solving and debugging skills.</p>
+                    <a href="https://github.com/1-alisa/A220960_SirNelson_Project02" class="btn-github" target="_blank">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reflection">
+        <h2 class="section-title">Learning Journey</h2>
+        <div class="intro-text">
+            Throughout this course, I have gained strong foundational knowledge in mobile application development. I learned how to design interfaces, handle user interactions, and manage data effectively. I also improved my technical and problem-solving skills through hands-on labs and projects. Overall, this experience has helped me become more confident in building mobile applications.
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Skills & Tech Stack</h2>
+        <div class="skills-list">
+            <span class="skill-tag">Kotlin</span>
+            <span class="skill-tag">Jetpack Compose</span>
+            <span class="skill-tag">Android Studio</span>
+            <span class="skill-tag">Retrofit (API)</span>
+            <span class="skill-tag">Firebase Firestore</span>
+            <span class="skill-tag">Room Database</span>
+            <span class="skill-tag">CameraX</span>
+            <span class="skill-tag">ML Kit (OCR/QR)</span>
+            <span class="skill-tag">Material Design 3</span>
+            <span class="skill-tag">Jetpack Navigation</span>
+            <span class="skill-tag">GitHub</span>
+        </div>
+    </section>
+
+    <section id="resources">
+        <h2 class="section-title">Resources</h2>
+        <div class="resources-list">
+            <ul>
+                <li><strong>Advice Slip JSON API:</strong> Used for fetching live motivational content.</li>
+                <li><strong>Google ML Kit:</strong> Utilized for text recognition and barcode scanning sensors.</li>
+                <li><strong>Firebase Firestore:</strong> Implemented for cloud data synchronization.</li>
+                <li><strong>Room Persistence Library:</strong> Used for local database management.</li>
+                <li><strong>Retrofit & Gson:</strong> For handling network requests and data serialization.</li>
+                <li><strong>AI Assistance:</strong> Acknowledgment to AI tools (ChatGPT/Claude) for code optimization and debugging guidance.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>WAN ALISA SOFIA BINTI WAN MOHD RAMZAN | A220960</p>
+        <p>Programme: Mobile Application Programming | Instructor: Sir Nelson Sana</p>
+        <p>&copy; 2024 Student e-Portfolio</p>
+    </footer>
+
+</body>
+</html>
